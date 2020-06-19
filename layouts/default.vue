@@ -1,9 +1,22 @@
-<template>
+<template>  
+
   <div>
-    <nuxt />
+    <div>
+      <theHeader />
+    </div>
+    <div>
+      <nuxt/>
+    </div>
   </div>
 </template>
-
+<script>
+import theHeader from '../components/header/header'
+export default {
+  components:{
+    theHeader
+  }
+}
+</script>
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
