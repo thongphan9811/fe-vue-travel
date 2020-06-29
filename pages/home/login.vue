@@ -6,7 +6,7 @@
     <p class="h4 mb-4">Sign in</p>
 
     <!-- Email -->
-    <input id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" v-model="username">
+    <input id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" type="email" v-model="email">
 
     <!-- Password -->
     <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" v-model="password">
@@ -42,23 +42,20 @@
     <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
 
 </form>
-<!-- Default form login -->
-    <h2>{{username}}</h2>
-    <h3>{{token}}</h3>
     </div>
 </template>
 <script>
 export default {
     data(){
         return{
-            username:'',
+            email:'',
             password:'',
             token:null,
         }
     },
     methods:{
         async login (){
-            await this.$store.dispatch('user/login',{username:this.username,password:this.password});
+            await this.$store.dispatch('user/login',{email:this.email,password:this.password});
             this.username= this.$store.state.user.username;
             this.token = this.$store.state.user.token;
             this.$router.push('/home')

@@ -49,7 +49,10 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    
+    { src: '~/plugins/localStorage.js', ssr: false },
+    '~/plugins/axios',
+    { src: '~/plugins/v-calendar.js', ssr: false },
+    { src: '~/plugins/vee.js', ssr: true }
   ],
   /*
   ** Nuxt.js dev-modules

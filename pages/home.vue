@@ -1,7 +1,7 @@
 <template>
     <div>
         <div > 
-          <nuxt-child />
+          <nuxt-child v-on:set-profile="middle_profile" v-on:finished_profile="register_profile"/>
         </div>
     </div>
 </template>
@@ -9,11 +9,19 @@
 export default {
     data(){
         return{
-            username:'',
+            user:null
         }
     },
     components:{
         
+    },
+    methods:{
+        middle_profile(e){
+            this.user = e;
+        },
+        register_profile(e){
+            this.user = Object.assign({},this.user,e);
+        }
     }
 }
 </script>
